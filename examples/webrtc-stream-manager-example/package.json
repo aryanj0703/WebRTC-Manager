@@ -1,0 +1,32 @@
+{
+  "name": "webrtc-stream-manager-example",
+  "description": "WebRTC Stream Manager Example",
+  "private": true,
+  "includeInDemo": true,
+  "version": "0.0.0",
+  "license": "MPL-2.0",
+  "type": "module",
+  "scripts": {
+    "start": "nx run webrtc-stream-manager-example:serve",
+    "serve": "node -e \"require('cors-anywhere').createServer().listen(4242, '0.0.0.0')\" & vite",
+    "build:demo": "tsc --outDir ../dist/webrtc-stream-manager-example && vite build --outDir ../dist/webrtc-stream-manager-example --emptyOutDir --base ./ && cp ./package.json ../dist/webrtc-stream-manager-example/package.json && cp -r ./netlify ../dist/webrtc-stream-manager-example/netlify",
+    "deploy:demo": "npm run build:demo && pushd ../dist/webrtc-stream-manager-example && netlify deploy --prod && popd",
+    "ci:check": "echo 'Additional CI checks can be added here'"
+  },
+  "dependencies": {
+    "@netlify/functions": "^1.6.0",
+    "@networkoptix/webrtc-stream-manager": "^0.1.10",
+    "@types/node": "^14.18.54",
+    "rxjs": "7.8.1"
+  },
+  "devDependencies": {
+    "cors-anywhere": "^0.4.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.2.0",
+    "nx": "16.3.2",
+    "@types/node": "^18.15.5",
+    "netlify-cli": "^15.9.1",
+    "nx-cloud": "16.0.5",
+    "prettier": "^2.6.2"
+  }
+}

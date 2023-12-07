@@ -1,0 +1,55 @@
+<!-- Copyright 2018-present Network Optix, Inc. Licensed under MPL 2.0: www.mozilla.org/MPL/2.0/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebRTC Stream Manager Example</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1 id="description"></h1>
+      <div class="card">
+        <form name="cloud-data">
+          <div>
+            <label for="cloudInstance">Cloud Instance Url</label>
+            <input
+              type="url"
+              name="cloudInstance"
+              id="endpcloudInstanceoint"
+              required
+              value=""
+              placeholder="https://nxvms.com"
+            />
+          </div>
+          <button type="submit">Authenticate</button>
+        </form>
+
+        <form name="endpoint-data">
+          <fieldset>
+            <legend>Endpoint Options</legend>
+            <div>
+              <label for="selectedSystem">Select a system</label>
+              <select name="selectedSystem">
+                <option value="loading">Loading Systems...</option>
+              </select>
+            </div>
+            <div id="selectedCamera">
+              <label for="selectedCamera">Select a camera</label>
+              <select name="selectedCamera">
+                <option value="loading">Loading Cameras...</option>
+              </select>
+            </div>
+          </fieldset>
+          <button type="submit" disabled>Start WebRTC Connection</button>
+        </form>
+      </div>
+      <div class="card">
+        <video id="targetVideo" autoplay muted></video>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
